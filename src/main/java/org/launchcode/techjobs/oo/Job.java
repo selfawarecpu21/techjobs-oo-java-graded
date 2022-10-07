@@ -54,12 +54,31 @@ public class Job {
 
 
     @Override
-    public String toString(){
-        return "\nID: " + id + "\n" +
-                "Name: " + (name != null && !name.isEmpty() ? name : "Data not available") + "\n" +
-                "Employer: " + (employer != null && !employer.toString().isEmpty() ? employer : "Data not available") + "\n" +
-                "Location: " + (location != null && !location.toString().isEmpty() ? employer : "Data not available") + "\n" +
-                "Core Competency: " + (coreCompetency != null && coreCompetency.toString().isEmpty() ? coreCompetency : "Data not available") + "\n";
+    public String toString(){ // Ternary Operator - (variable = Expression1 ? Expression2 : Expression3)
+
+        if(this.name == null || this.name.isEmpty()){
+            return this.name = "Data not available";
+        }
+        if(employer.getValue().equals("") || employer.getValue() == null){
+            employer.setValue("Data not available");
+        }
+        if((location.getValue().equals("") || location.getValue() == null)){
+            location.setValue("Data not available");
+        }
+        if((positionType.getValue().equals("") || positionType.getValue() == null)){
+            positionType.setValue("Data not available");
+        }
+        if((coreCompetency.getValue().equals("") || coreCompetency.getValue() == null)){
+            coreCompetency.setValue("Data not available");
+        }
+
+        return // if value is not equal to null and is empty then it equals "Data is not available
+                "\nID: " + id + "\n" +
+                "Name: " + name  + "\n" +
+                "Employer: " + employer  + "\n" +
+                "Location: " + location + "\n" +
+                        "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
     }
 
 
@@ -74,6 +93,7 @@ public class Job {
     public String getName(){
         return name;
     }
+
     public String setName(String name){
       this.name = name;
       return name;
