@@ -49,7 +49,5 @@ public abstract class JobField {
         this.value = value;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 }
